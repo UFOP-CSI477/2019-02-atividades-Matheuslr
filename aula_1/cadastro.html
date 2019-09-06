@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+</head>
+<body>
+    <h1>Registration data</h1>
+
+    <form method="get" action="validar.html">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" placeholder="Name da pessoa">
+
+        <br>
+
+        <label for="address">Address:</label>
+        <input type="text" name="address" id="address" placeholder="street, number, complement">
+        
+        <br>
+
+        <input type="radio" name="gender" id="female" value="F">
+        <label for="female">Female</label>
+
+        <br>
+
+        <input type="radio" name="gender" id="male" value="M">
+        <label for="male">Male</label>
+
+        <br>
+
+        <input type="radio" name="gender" id="non_binary" value="N">
+        <label for="non_binary">Non binary</label>
+
+        <br>
+
+        <label for="user">User:</label>
+        <input type="text" name="user" id="user">
+
+        <br>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        
+        <br>
+
+        <label for="">Áreas de interesse</label>
+        <br>
+        <input type="checkbox" name="web" id="area[0]">
+
+        <label for="web">Sistemas web</label>
+
+        <input type="checkbox" name="db" id="area[1]">
+        <label for="db">DataBase</label>
+
+        <input type="checkbox" name="redes" id="area[2]">
+        <label for="redes">Redes</label>
+
+        <br>
+
+        <label for="cidade">Cidade: </label>
+        <select name="cidade" id="cidade">
+            <option disabled selected value>--Escolha uma cidade--</option>
+            <option value="1">João Monlevade</option>
+            <option value="2">Itabira</option>
+            <option value="3">Belo Horizonte</option>
+            <option value="4">Itaúna</option>
+            <option value="5">Ipatinga</option>
+        </select>
+
+
+        <br>
+
+        <label for="cor">Cor favorita</label>
+        <input type="color" name="cor" id="cor">
+
+        
+        <br>
+
+        <label for="data_nascimento">Data de nascimento</label>
+        <input type="date" name="data_nascimento" id="data_nascimentos">
+        
+        
+        <br>
+
+
+        <input type="submit" value="Cadastrar" name="cadastro">
+        <input type="reset" value="Limpar">
+
+
+
+
+    </form>
+
+    <a href="index.html">Voltar</a>
+
+</body>
+</html>

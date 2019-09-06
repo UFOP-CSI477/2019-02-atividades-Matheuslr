@@ -1,0 +1,31 @@
+table{
+    width: 100%;
+}
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+td, th {
+    padding: 10px;
+}
+
+th {
+    font-size: 14pt;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue
+}
+
+tr.destaque{
+    font-size: 18pt;
+    color: blue;
+    background-color: #c6c6c6;
+    text-align: center;
+    
+}
