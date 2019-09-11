@@ -29,3 +29,12 @@ tr.destaque{
     text-align: center;
     
 }
+
+tbody tr:hover     {
+    background-color: #babaca
+}
+
+tr:nth-child(odd){
+    background-color: #ababab;
+}
+
