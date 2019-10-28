@@ -5,6 +5,7 @@ function inserirLinha(){
     let tempo = parseFloat(document.form.tempo.value);
     
     if (validarNome(competidor, "alerta1","label1" ) && validar(largada, "alerta2", "label2") && validar(tempo, "alerta3","label3" ) && validarTamanhoTabela()){
+            document.getElementById("tabela").style.display = "block"
             let tabela = document.getElementById("tabela");
             let linha = tabela.insertRow(1);
             let celula1 = linha.insertCell(0);
