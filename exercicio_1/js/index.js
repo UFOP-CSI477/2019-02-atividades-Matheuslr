@@ -11,11 +11,30 @@ function inserirLinha(){
             let celula2 = linha.insertCell(1);
             let celula3 = linha.insertCell(2);
             let celula4 = linha.insertCell(3);
-            celula1.innerHTML = "1";
+            let celula5 = linha.insertCell(4);
             celula2.innerHTML = largada;
             celula3.innerHTML = competidor;
             celula4.innerHTML = tempo;
             sortTable();
+
+            let arrTempo = []
+            for (let i = 1; i < tabela.rows.length; i++){
+                tempo = parseFloat(tabela.rows[i].cells[3].innerHTML);
+                if(!arrTempo.includes(tempo)){
+                    arrTempo[i-1] = tempo;
+                }
+            }
+            console.log(arrTempo.sort())
+            for (let i = 1; i <= tabela.rows.length; i++){
+                tempo = parseFloat(tabela.rows[i].cells[3].innerHTML);
+                posicao = arrTempo.indexOf(tempo)+1;
+                tabela.rows[i].cells[0].innerHTML = posicao;
+                if (posicao == 1){
+                    tabela.rows[i].cells[4].innerHTML = "Vencedor(a)!";
+                }else{
+                    tabela.rows[i].cells[4].innerHTML = "-";
+                }
+            }                    
     }
 }
 
@@ -73,7 +92,7 @@ function validarNome(campo, alerta, label) {
 
         document.getElementById(alerta).style.display = "block";
 
-        document.getElementById(label).classList.add("text-danger");
+
 
         campo.value = "";
         campo.focus();
@@ -91,9 +110,7 @@ function validarTamanhoTabela(){
     let tamanhoTabela = document.getElementById("tabela").rows.length;
     console.log(tamanhoTabela)
     if (tamanhoTabela > 6) {
-        console.log("oi")
         document.getElementById("alerta4").style.display = "block";
-
         document.getElementById("label4").classList.add("text-danger");
 
         campo.value = "";
