@@ -6,38 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css">
-
-    <title>Document</title>
+    <script src="js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Corrida de rolimã</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="competidor1">Competidor</label>
-                    <input type="text" class="form-control" name="competidor1" id="competidor1">
+        <form name="form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="competidor">Competidor</label>
+                        <input type="text" class="form-control" name="competidor" id="competidor">
+
+                        <div id="alerta1" class="alert alert-danger" style="display: none">
+                            <span>Preencha o nome do participante corretamente!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="largada">Largada</label>
+                        <input type="text" class="form-control" name="largada" id="largada">
+
+                        <div id="alerta2" class="alert alert-danger" style="display: none">
+                            <span>Preencha o valor da largadacorretamente!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="tempo">Tempo</label>
+                        <input type="text" class="form-control" name="tempo" id="tempo">
+
+                        <div id="alerta3" class="alert alert-danger" style="display: none">
+                            <span>Preencha o tempo corretamente!</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="largada1">Largada</label>
-                    <input type="text" class="form-control" name="largada1" id="largada1">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="tempo1">Tempo</label>
-                    <input type="text" class="form-control" name="tempo1" id="tempo1">
-                </div>
-            </div>
-        </div>
+        </form>
         <div class="row">
             <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary" onclick="inserirLinha()">Enviar</button>
+                <div id="alerta4" class="alert alert-danger" style="display: none">
+                        <span>Máximo de participantes atingido</span>
+                    </div>
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <table class="table table-bordered table-hover table-striped" id="tabela">
+                    <thead>
+                        <tr>
+                            <th scope="col">Posicao</th>
+                            <th scope="col">Largada</th>
+                            <th scope="col">Competidor(a)</th>
+                            <th scope="col">Tempo(s)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>asd1</td>
+                            <td>asd2</td>
+                            <td>asd3</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>asd1</td>
+                            <td>asd2</td>
+                            <td>asd3</td>
+                            <td>123</td>
+                        </tr>
+                        <tr>
+                            <td>asd1</td>
+                            <td>asd2</td>
+                            <td>asd3</td>
+                            <td>243</td>
+                        </tr>
+                        <tr>
+                            <td>asd1</td>
+                            <td>asd2</td>
+                            <td>asd3</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>asd1</td>
+                            <td>asd2</td>
+                            <td>asd3</td>
+                            <td>23</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
 
 </body>
 
