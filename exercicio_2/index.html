@@ -1,12 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <script src="js/index.js"></script>
     <title>IMC</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <form name="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="altura">Altura</label>
+                        <input type="text" name="altura" id="altura" class="form-control">
+
+                        <div id="alerta1" class="alert alert-danger" style="display: none">
+                            <span>Preencha a altura correntamente</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="peso">Peso</label>
+                        <input type="text" name="peso" id="peso" class="form-control">
+
+                        <div id="alerta2" class="alert alert-danger" style="display: none">
+                            <span>Preencha o peso correntamente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-primary" onclick="calcularIMC() ">Enviar!</button>
+            </div>
+        </div>
+        <form name="resultado">
+        <div class="row">
+                <div class="col-md-4">
+                    <div id="imc" class="form-group">
+                        <label for="imc">IMC</label>
+                        <input type="text" name="imc" id="imc" value="" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="classificacao" class="form-group">
+                        <label for="classificacao">Classificação</label>
+                        <input type="text" name="classificacao" id="classificacao" value="" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="peso_ideal" class="form-group">
+                        <label for="peso_ideal">Faixa de peso ideal</label>
+                        <input type="text" name="peso_ideal" id="peso_ideal" value="" class="form-control" disabled>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 </body>
+
 </html>

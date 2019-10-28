@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/bootstrap-4.3.1-dist/css/bootstrap.css">
     <script src="js/index.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <title>Corrida de rolimã</title>
 </head>
 
@@ -31,7 +31,7 @@
                         <input type="text" class="form-control" name="largada" id="largada">
 
                         <div id="alerta2" class="alert alert-danger" style="display: none">
-                            <span>Preencha o valor da largadacorretamente!</span>
+                            <span>Preencha o valor da largada corretamente!</span>
                         </div>
                     </div>
                 </div>
@@ -51,15 +51,15 @@
             <div class="col-md-12 text-center">
                 <button type="submit" class="btn btn-primary" onclick="inserirLinha()">Enviar</button>
                 <div id="alerta4" class="alert alert-danger" style="display: none">
-                        <span>Máximo de participantes atingido</span>
-                    </div>
+                    <span>Máximo de participantes atingido</span>
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <table class="table table-bordered table-hover table-striped" id="tabela" style="display: none">
+                <table class="table table-bordered table-hover table-striped" id="tabela"  style="visibility: hidden">
                     <thead>
                         <tr>
                             <th scope="col">Posicao</th>
@@ -69,48 +69,10 @@
                             <th scope="col">Resultado</th>
                         </tr>
                     </thead>
-                    <!-- <tbody>
-                        <tr>
-                            <td>asd1</td>
-                            <td>asd2</td>
-                            <td>asd3</td>
-                            <td>23</td>
-                            <td>23</td>
-                        </tr>
-                        <tr>
-                            <td>asd1</td>
-                            <td>asd2</td>
-                            <td>asd3</td>
-                            <td>123</td>
-                            <td>123</td>
-                        </tr>
-                        <tr>
-                            <td>asd1</td>
-                            <td>asd2</td>
-                            <td>asd3</td>
-                            <td>243</td>
-                            <td>243</td>
-                        </tr>
-                        <tr>
-                            <td>asd1</td>
-                            <td>asd2</td>
-                            <td>asd3</td>
-                            <td>4</td>
-                            <td>4</td>
-                        </tr>
-                        <tr>
-                            <td>asd1</td>
-                            <td>asd2</td>
-                            <td>asd3</td>
-                            <td>23</td>
-                            <td>23</td>
-                        </tr>
-                    </tbody> -->
                 </table>
             </div>
         </div>
     </div>
-
 
 </body>
 

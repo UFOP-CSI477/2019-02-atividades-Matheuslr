@@ -5,7 +5,7 @@ function inserirLinha(){
     let tempo = parseFloat(document.form.tempo.value);
     
     if (validarNome(competidor, "alerta1","label1" ) && validar(largada, "alerta2", "label2") && validar(tempo, "alerta3","label3" ) && validarTamanhoTabela()){
-            document.getElementById("tabela").style.display = "block"
+            document.getElementById("tabela").style.visibility = "visible"
             let tabela = document.getElementById("tabela");
             let linha = tabela.insertRow(1);
             let celula1 = linha.insertCell(0);
@@ -25,7 +25,7 @@ function inserirLinha(){
                     arrTempo[i-1] = tempo;
                 }
             }
-            console.log(arrTempo.sort())
+            
             for (let i = 1; i <= tabela.rows.length; i++){
                 tempo = parseFloat(tabela.rows[i].cells[3].innerHTML);
                 posicao = arrTempo.indexOf(tempo)+1;
@@ -109,7 +109,6 @@ function validarNome(campo, alerta, label) {
 
 function validarTamanhoTabela(){
     let tamanhoTabela = document.getElementById("tabela").rows.length;
-    console.log(tamanhoTabela)
     if (tamanhoTabela > 6) {
         document.getElementById("alerta4").style.display = "block";
         document.getElementById("label4").classList.add("text-danger");
