@@ -64,14 +64,12 @@ function sortTable() {
   }
 
   
-function validar(campo, alerta, label) {
+function validar(campo, alerta) {
 
     
     if (campo.length == 0 || isNaN(campo)) {
 
         document.getElementById(alerta).style.display = "block";
-
-        document.getElementById(label).classList.add("text-danger");
 
         campo.value = "";
         campo.focus();
