@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Subject;
+use App\Requets;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -28,7 +29,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        $subjects = Subject::orderBy('name')->get();
+        return view('subjects.create', ['subjects' => $subjects]);
     }
 
     /**
@@ -39,7 +41,14 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $s = new Subject();
+        $s->name = $request->name;
+        $s->price = $request->price;
+        $s->price = str_replace(",",".",$s->price);
+        $s->save();
+        // Subject::create($request->all());
+        
+        return redirect()->route('subjects.index');
     }
 
     /**
@@ -50,7 +59,7 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        //
+        return view('subjects.show', ['subject' => $subject]);
     }
 
     /**
@@ -61,7 +70,8 @@ class SubjectController extends Controller
      */
     public function edit(Subject $subject)
     {
-        //
+
+        return view('subjects.edit', ['subject' => $subject]);
     }
 
     /**
@@ -73,7 +83,11 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $subject->fill($request->all());
+        $subject->save();
+
+        session()->flash('mensagem', 'subject atualizado com sucesso');
+        return redirect()->route('subjects.index');
     }
 
     /**
@@ -84,6 +98,23 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+
+        $requets = Requets::orderBy('date')->get();
+
+        $count = 0;
+        foreach($requets as $r){
+            if($r->subject_id == $subject->id){
+                $count++;
+            }
+        }
+        if($count == 0){
+            $subject->delete();
+            session()->flash('mensagem_sucesso', 'Protocolo deletado');
+        }else{
+            $erro_string="O protocolo possui {$count} requerimento(s) vinculado(s)";
+            session()->flash('mensagem_erro',$erro_string );
+        }
+
+        return redirect()->route('subjects.index');
     }
 }

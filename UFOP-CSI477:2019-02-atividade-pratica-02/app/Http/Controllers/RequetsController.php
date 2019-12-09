@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Requets;
+use App\Subject;
 use Illuminate\Http\Request;
 
 class RequetsController extends Controller
@@ -14,7 +15,8 @@ class RequetsController extends Controller
      */
     public function index()
     {
-        $requets = Requets::orderBy('id')->get();
+        $requets = Requets::orderBy('date')->get();
+        $requets = $requets->reverse();
 
         // View -> apresentar
         return view('requets.index')
@@ -28,7 +30,11 @@ class RequetsController extends Controller
      */
     public function create()
     {
-        //
+
+        $subjects = Subject::orderBy('name')->get();
+        return view('requets.create', 
+        ['subject'=> $subjects ]);
+        
     }
 
     /**
@@ -39,7 +45,10 @@ class RequetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        Requets::create($request->all());
+
+        return redirect()->route('requets.index');
     }
 
     /**
@@ -48,9 +57,9 @@ class RequetsController extends Controller
      * @param  \App\Requets  $requets
      * @return \Illuminate\Http\Response
      */
-    public function show(Requets $requets)
+    public function show(Requets $requet)
     {
-        //
+        return view('requets.show', ['requet' => $requet]);
     }
 
     /**
@@ -59,9 +68,13 @@ class RequetsController extends Controller
      * @param  \App\Requets  $requets
      * @return \Illuminate\Http\Response
      */
-    public function edit(Requets $requets)
+    public function edit(Requets $requet)
     {
-        //
+        $subjects = Subject::orderBy('name')->get();
+
+        return view('requets.edit', 
+        ['requet' => $requet,
+         'subjects' => $subjects]);
     }
 
     /**
@@ -71,9 +84,16 @@ class RequetsController extends Controller
      * @param  \App\Requets  $requets
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Requets $requets)
+    public function update(Request $request, Requets $requet)
     {
-        //
+        $requet->fill($request->all());
+        // Persiste no BD
+        $requet->save();
+
+        session()->flash('mensagem', 'Requerimento atualizado com sucesso!');
+
+        return redirect()->route('requets.index');
+
     }
 
     /**
@@ -82,8 +102,10 @@ class RequetsController extends Controller
      * @param  \App\Requets  $requets
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Requets $requets)
+    public function destroy(Requets $requet)
     {
-        //
+        $requet->delete();
+        session()->flash('mensagem', 'Requerimento deletado com sucesso');
+        return redirect()->route('requets.index');
     }
 }
