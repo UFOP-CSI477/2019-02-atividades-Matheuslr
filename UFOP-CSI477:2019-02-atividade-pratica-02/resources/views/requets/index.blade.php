@@ -24,6 +24,7 @@
     </thead>
     <tbody>
 @foreach($requets as $r)
+    @if($r->user_id == Auth::user()->id)
     <tr>
         <td>{{ $r->id }}</td>
         <td>{{ $r->subject->name }}</td>
@@ -37,6 +38,7 @@
             <td><a href="{{ route('requets.show', $r->id) }}" class="btn btn-primary">Exibir</a></td>
         @endif
     </tr>
+    @endif
 @endforeach
     </tbody>
     @if(!Auth::guest() and Auth::user()->type == 0)
@@ -45,8 +47,10 @@
             {{$cost = 0.00}}
             {{$count = 0}}
                 @foreach ($requets as $r)
+                @if($r->user_id == Auth::user()->id)
                 {{$cost += $r->subject->price}}
                 {{$count += 1}}
+                @endif
                 @endforeach
             </p>
         <tr>
