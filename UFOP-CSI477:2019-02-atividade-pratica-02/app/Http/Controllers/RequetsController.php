@@ -15,12 +15,10 @@ class RequetsController extends Controller
      */
     public function index()
     {
-        $requets = Requets::orderBy('date')->get();
-        $requets = $requets->reverse();
+        $requets = Requets::orderBy('date','DESC')->get()->sortBy('protocols.name');
 
         // View -> apresentar
-        return view('requets.index')
-                ->with('requets', $requets);
+        return view('requets.index', ['requets'=>$requets]);
     }
 
     /**

@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 Route::resource('/subjects','SubjectController' );
 
-Route::get('/', function () {
-    return view('welcome');
-}); 
+Route::get('/', 'SubjectController@index'); 
 
 Auth::routes();
 

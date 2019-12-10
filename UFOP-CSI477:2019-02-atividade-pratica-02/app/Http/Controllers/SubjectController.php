@@ -13,13 +13,14 @@ class SubjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $subjects = Subject::orderBy('name')->get();
 
         // View -> apresentar
-        return view('subjects.index')
-                ->with('subjects', $subjects);
+        return view('subjects.index', 
+        ['subjects'=>$subjects,
+         'request'=>$request]);
     }
 
     /**

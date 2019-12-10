@@ -10,15 +10,15 @@
     <div class="alert alert-danger">
         <strong>{{Session::get('mensagem_erro')}}</strong>
     </div>
-
 @endif
 <table class="table table-striped table-bordered">
     <thead class="table-light">
+            
         <tr>
             <th>Id do protocolo</th>
             <th>Nome do protocolo</th>
             <th>preço</th>
-            @if(!Auth::guest() and Auth::user()->type == 1)
+            @if(!Auth::guest() and Auth::user()->type == 1 and $request->route()->getName() == 'subjects.index')
             <th>ações</th>
             @endif
         </tr>
@@ -34,14 +34,14 @@
             <td>Grátis</td>
         @endif
 
-        @if(!Auth::guest() and Auth::user()->type == 1)
+        @if(!Auth::guest() and Auth::user()->type == 1 and $request->route()->getName() == 'subjects.index')
         <td><a href="{{ route('subjects.show', $s->id) }}" class="btn btn-primary">Exibir</a></td>
         @endif
     </tr>
 @endforeach
     </tbody>
   </table>
-  @if(!Auth::guest() and Auth::user()->type == 1)
+  @if(!Auth::guest() and Auth::user()->type == 1 and $request->route()->getName() == 'subjects.index')
   <td><a href="{{ route('subjects.create') }}" class="btn btn-primary">Criar novo protocolo</a></td>
   @endif
 @endsection
